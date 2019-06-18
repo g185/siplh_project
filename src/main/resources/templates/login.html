@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<title>SiLpH</title>
+<style>
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: white;
+}
+
+nav {
+	background: #2CA3CD;
+	width: 100%;
+	overflow: auto;
+	height: 200px;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+li2 {
+	float: right;
+}
+
+nav a {
+	width: 120px;
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	background-colog: #2CA3CD;
+	font-size: 22px;
+	color: white;
+	padding: 85px 10px;
+	font-family: Arial;
+}
+
+nav a:hover {
+	background: skyblue;
+	color: black;
+}
+
+</style>
+</head>
+<body>
+	<nav>
+		<ul>
+			<img th:src="@{images/logo.png}">
+			<li2>
+			<a th:href="@{/Login}">Login</a></li2>
+			<li2>
+			<a th:href="@{/Gallery}">Gallery</a></li2>
+			<li2>
+			<a th:href="@{/}">Home</a></li2>
+		</ul>
+	</nav>
+	OAUTH
+</body>
+</html>
