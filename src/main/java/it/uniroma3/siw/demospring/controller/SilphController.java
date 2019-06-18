@@ -32,7 +32,7 @@ public class SilphController {
 	
 	@RequestMapping("/Gallery")
 	public String gallery(Model model) {
-		model.addAttribute("albums", this.ss.tuttiAlbum());
+		model.addAttribute("albums", this.ss.tuttiAlbum().size());
 		return "gallery.html";
 	}
 	

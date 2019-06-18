@@ -22,6 +22,8 @@ public class Album {
 	
 	private String imagePath;
 	
+	private int abuffo;
+	
 	@ManyToMany
 	private List<Photo> photos;
 }

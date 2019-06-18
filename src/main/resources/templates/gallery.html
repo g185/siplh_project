@@ -121,14 +121,10 @@ form2 {
 		</ul>
 	</nav>
 	<div class="container">
+		<a th:text ="${albums}"></a>
 		<ul>
-
-			<li th:each="album : ${albums}">
-				<div class="gallery">
-					<img th:src="${album.imagePath}">
-					<div class="desc" th:text="${album.name}">nome</div>
-				</div>
 		</ul>
+		ciao
 		<div class="gallery">
 			<img
 				src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Luria_isabella_02_600x600.jpg">
