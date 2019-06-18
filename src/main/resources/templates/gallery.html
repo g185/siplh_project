@@ -11,8 +11,8 @@
 body {
 	margin: 0;
 	background: white;
-    margin-bottom: 150px;
-    clear: both;
+	margin-bottom: 150px;
+	clear: both;
 }
 
 nav {
@@ -85,13 +85,12 @@ footer {
 	bottom: 0px;
 	width: 100%;
 	letter-spacing: 1px;
-	display:block;
+	display: block;
 }
 
 form2 {
 	text-align: right;
 }
-
 
 .form-style-5 input[type="submit"], .form-style-5 input[type="button"] {
 	display: block;
@@ -110,8 +109,6 @@ form2 {
 	{
 	background: #109177;
 }
-
-
 </style>
 </head>
 <body>
@@ -124,6 +121,14 @@ form2 {
 		</ul>
 	</nav>
 	<div class="container">
+		<ul>
+
+			<li th:each="album : ${albums}">
+				<div class="gallery">
+					<img th:src="${album.imagePath}">
+					<div class="desc" th:text="${album.name}">nome</div>
+				</div>
+		</ul>
 		<div class="gallery">
 			<img
 				src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Luria_isabella_02_600x600.jpg">
@@ -157,8 +162,9 @@ form2 {
 	</div>
 	<footer class="form-style-5">
 		Hai selezionato "%d" foto
-		<form th:action="@{/RequestForm}"> 
-		<input type="submit" value="Ordina" /> </form>
+		<form th:action="@{/RequestForm}">
+			<input type="submit" value="Ordina" />
+		</form>
 	</footer>
 </body>
 </html>

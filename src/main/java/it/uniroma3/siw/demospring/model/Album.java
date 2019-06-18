@@ -20,6 +20,8 @@ public class Album {
 	
 	private String description;
 	
+	private String imagePath;
+	
 	@ManyToMany
 	private List<Photo> photos;
 }

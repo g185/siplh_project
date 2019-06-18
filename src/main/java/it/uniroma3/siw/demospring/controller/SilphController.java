@@ -32,7 +32,7 @@ public class SilphController {
 	
 	@RequestMapping("/Gallery")
 	public String gallery(Model model) {
-		//prende i temporanei e li riporta
+		model.addAttribute("albums", this.ss.tuttiAlbum());
 		return "gallery.html";
 	}
 	
