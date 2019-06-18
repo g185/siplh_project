@@ -134,7 +134,7 @@ form2 {
 		</ul>
 	</div>
 	<footer class="form-style-5">
-		Hai selezionato "%d" foto
+		Hai selezionato <a th:text="${photosNumber}"/> foto
 		<form th:action="@{/RequestForm}">
 			<input type="submit" value="Ordina" />
 		</form>

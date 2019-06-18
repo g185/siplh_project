@@ -130,7 +130,7 @@ form2 {
 				<div class="gallery">
 					<img th:src="${photo.imagePath}">
 					<div class="desc">
-						<form th:action="@{/}">
+						<form th:action="@{'/album/' + ${album.id} + '/addPhoto/' + ${photo.id}}">
 							<input type="submit" value="Add" />
 						</form>
 					</div>
@@ -138,7 +138,7 @@ form2 {
 		</ul>
 	</div>
 	<footer class="form-style-5">
-		Hai selezionato "%d" foto
+		Hai selezionato <a th:text="${photosNumber}"/> foto
 		<form th:action="@{/RequestForm}">
 			<input type="submit" value="Ordina" />
 		</form>
