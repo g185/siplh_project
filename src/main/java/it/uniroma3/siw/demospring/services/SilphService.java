@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import it.uniroma3.siw.demospring.model.Album;
+import it.uniroma3.siw.demospring.model.Photo;
 import it.uniroma3.siw.demospring.model.Request;
 import it.uniroma3.siw.demospring.repository.AlbumRepository;
 import it.uniroma3.siw.demospring.repository.RequestRepository;
@@ -31,6 +32,11 @@ public class SilphService {
 	@Transactional
 	public List<Album> tuttiAlbum() {
 		return (List<Album>) this.ar.findAll();
+	}
+
+	public List<Photo> tutteFotoDaAlbumId(Long id) {
+		Album alb = this.ar.findById(id).get();
+		return alb.getPhotos();
 	}
 
 }

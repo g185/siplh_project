@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -35,8 +36,19 @@ public class SilphController {
 		model.addAttribute("albums", this.ss.tuttiAlbum());
 		return "gallery.html";
 	}
-	
 
+	@RequestMapping("/album/{id}")
+	public String album(@PathVariable("id") Long id, Model model)
+	{ 
+		if(id != null) {
+			model.addAttribute("photos", this.ss.tutteFotoDaAlbumId(id));
+			return "photos.html";
+			
+		}else {
+			model.addAttribute("albums", this.ss.tuttiAlbum());
+			return "gallery.html";
+		}
+	}
 	
 	@RequestMapping("/Login")
 	public String login(Model model) {

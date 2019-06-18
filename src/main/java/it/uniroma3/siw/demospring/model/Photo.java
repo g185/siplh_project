@@ -21,4 +21,28 @@ public class Photo {
 	
 	@ManyToOne
 	private Photographer photographer;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
+
+	public Photographer getPhotographer() {
+		return photographer;
+	}
+
+	public void setPhotographer(Photographer photographer) {
+		this.photographer = photographer;
+	}
 }

@@ -62,7 +62,10 @@ nav a:hover {
 	float: left;
 	width: 390px;
 }
-
+a{
+	color: black;
+	}
+	
 .gallery img {
 	width: 100%;
 	height: auto;
@@ -122,44 +125,13 @@ form2 {
 	</nav>
 	<div class="container">
 		<ul>
-
 			<li th:each="album : ${albums}">
 				<div class="gallery">
+					<a th:href="@{'/album/' + ${album.id}}">
 					<img th:src="${album.imagePath}">
-					<div class="desc" th:text="${album.name}">nome</div>
+					<div class="desc" th:text="${album.name}"></div></a>
 				</div>
 		</ul>
-		ciao
-		<div class="gallery">
-			<img
-				src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Luria_isabella_02_600x600.jpg">
-			<div class="desc">Description</div>
-		</div>
-		<div class="gallery">
-			<img
-				src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Gallet_clamshell_600x600_2.jpg">
-			<div class="desc">Description</div>
-		</div>
-		<div class="gallery">
-			<img
-				src="https://www.silviabadriotto.it/wp-content/uploads/2016/03/Photographer-Sonya-Yu-dog-portraits-2-600x600.jpg">
-			<div class="desc">Description</div>
-		</div>
-		<div class="gallery">
-			<img
-				src="https://gagamilano.com/it/wp-content/uploads/2018/11/5099NJ01D-NeymarThinChrono46MM-600x600.jpg">
-			<div class="desc">Description</div>
-		</div>
-		<div class="gallery">
-			<img
-				src="https://www.kurzweilai.net/images/Naam-Limits-of-Earth-Part1-001-earth-600x600.jpg">
-			<div class="desc">Description</div>
-		</div>
-		<div class="gallery">
-			<img
-				src="http://www.vectortiles.com/wp-content/uploads/hexagonal-honeycomb-patterns-06-600x600.jpg">
-			<div class="desc">Description</div>
-		</div>
 	</div>
 	<footer class="form-style-5">
 		Hai selezionato "%d" foto
