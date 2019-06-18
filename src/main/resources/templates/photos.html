@@ -63,6 +63,10 @@ nav a:hover {
 	width: 390px;
 }
 
+a {
+	color: black;
+}
+
 .gallery img {
 	width: 100%;
 	height: auto;
@@ -125,7 +129,11 @@ form2 {
 			<li th:each="photo : ${photos}">
 				<div class="gallery">
 					<img th:src="${photo.imagePath}">
-					<div class="desc" th:text="${photo.name}"></div>
+					<div class="desc">
+						<form th:action="@{/}">
+							<input type="submit" value="Add" />
+						</form>
+					</div>
 				</div>
 		</ul>
 	</div>
