@@ -106,6 +106,8 @@ public class SilphController {
 		if(!br.hasErrors()) {
 			request.setPhotos((List<Photo>)session.getAttribute("photos"));
 			ss.inserisciRichiesta(request);
+			List<Photo> photos = new ArrayList<Photo>();
+			session.setAttribute("photos", photos);
 			return "requested.html";
 		}
 		return "requestForm.html";
