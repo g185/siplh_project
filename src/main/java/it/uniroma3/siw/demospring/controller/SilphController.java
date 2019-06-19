@@ -26,7 +26,6 @@ import it.uniroma3.siw.demospring.services.SilphService;
 @SessionAttributes("photosNumber")
 public class SilphController {
 
-//dio non esiste
 
 	@Autowired
 	private SilphService ss;
