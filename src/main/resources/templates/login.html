@@ -46,21 +46,30 @@ nav a:hover {
 	background: skyblue;
 	color: black;
 }
-
 </style>
 </head>
 <body>
 	<nav>
 		<ul>
 			<img th:src="@{images/logo.png}">
-			<li2>
-			<a th:href="@{/Login}">Login</a></li2>
-			<li2>
-			<a th:href="@{/Gallery}">Gallery</a></li2>
-			<li2>
-			<a th:href="@{/}">Home</a></li2>
+			<li2> <a th:href="@{/Login}">Login</a></li2>
+			<li2> <a th:href="@{/Gallery}">Gallery</a></li2>
+			<li2> <a th:href="@{/}">Home</a></li2>
 		</ul>
 	</nav>
-	OAUTH
+	LOGIN
+	<div class="container unauthenticated">
+		With Facebook: <a href="/login">click here</a>
+	</div>
+	<div class="container authenticated" style="display: none">
+		Logged in as: <span id="user"></span>
+	</div>
 </body>
+<script type="text/javascript">
+	$.get("/user", function(data) {
+		$("#user").html(data.userAuthentication.details.name);
+		$(".unauthenticated").hide()
+		$(".authenticated").show()
+	});
+</script>
 </html>
