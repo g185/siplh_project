@@ -10,9 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import it.uniroma3.siw.demospring.model.Album;
 import it.uniroma3.siw.demospring.model.Photo;
+import it.uniroma3.siw.demospring.model.Photographer;
 import it.uniroma3.siw.demospring.model.Request;
 import it.uniroma3.siw.demospring.repository.AlbumRepository;
 import it.uniroma3.siw.demospring.repository.PhotoRepository;
+import it.uniroma3.siw.demospring.repository.PhotographerRepository;
 import it.uniroma3.siw.demospring.repository.RequestRepository;
 
 @Service
@@ -20,18 +22,22 @@ public class SilphService {
 
 	@Autowired
 	private RequestRepository rr;
-	
+
 	@Autowired
 	private AlbumRepository ar;
-	
+
 	@Autowired 
 	private PhotoRepository pr;
-	
-	
+
+
+	@Autowired 
+	private PhotographerRepository phr;
+
+
 	@Transactional
 	public void inserisciRichiesta(@Valid Request request) {
 		this.rr.save(request);
-		
+
 	}
 
 	@Transactional
@@ -54,6 +60,18 @@ public class SilphService {
 
 	public Boolean existPhotoById(Long id) {
 		return this.pr.existsById(id);
+	}
+
+	public List<Photo> PhotoByName(String name) {
+		return this.pr.findByName(name);
+	}
+
+	public List<Photographer> PhotographerBySurname(String surname) {
+		return this.phr.findBySurname(surname);
+	}
+
+	public List<Album> AlbumByName(String name) {
+		return this.ar.findByName(name);
 	}
 
 }

@@ -61,48 +61,14 @@ nav a:hover {
 			<li2> <a th:href="@{/}">Home</a></li2>
 		</ul>
 	</nav>
-	<a href="/">Sei collegato come "nome" "cognome"</a><br>
-	
-	<form th:action="@{/searchPhoto}" method = "POST" th:object="${stringa}">
-	<div>
-	FOTOGRAFIE:
+	<a href="/">Ciao, sei collegato come "nome" "cognome"</a><br>
+	<div class="container">
+		<ul>
+			<li th:each="photo : ${photos}">
+				<div class="gallery">
+					<img th:src="${photo.imagePath}">
+				</div>
+		</ul>
 	</div>
-	<div>
-	Nome:
-	</div>
-	<div>
-	<input type= "text" th:field="*{name}" >
-	<button type = "submit">Invia</button>
-	</div>
-	
-	</form>
-	
-	<form th:action="@{/searchAlbum}" method = "POST" th:object="${stringa}">	
-	<div>
-	ALBUM
-	</div>
-	<div>
-	Nome:
-	</div>
-	<div>
-	<input type= "text" th:field="*{name}" >
-	<button type = "submit">Invia</button>
-	</div>
-	
-	</form>
-	
-	<form th:action="@{/searchPhotographer}" method = "POST" th:object="${stringa}">
-	<div>
-	FOTOGRAFI
-	</div>
-	<div>
-	Cognome:
-	</div>
-	<div>
-	<input type= "text" th:field="*{name}" >
-	<button type = "submit">Invia</button>
-	</div>
-	
-	</form>
 </body>
 </html>

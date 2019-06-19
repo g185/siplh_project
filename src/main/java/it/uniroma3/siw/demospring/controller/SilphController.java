@@ -78,7 +78,7 @@ public class SilphController {
 			photos.add(this.ss.PhotoById(id));
 			session.setAttribute("photos", photos);
 			model.addAttribute("photosNumber", ((List<Photo>)session.getAttribute("photos")).size());
-			
+
 		}
 		model.addAttribute("album", this.ss.AlbumById(idA));
 		model.addAttribute("photos", this.ss.tutteFotoDaAlbumId(idA));
@@ -91,6 +91,67 @@ public class SilphController {
 		return "login.html";
 	}
 
+
+	@RequestMapping("/admin_add")
+	public String admin_add(Model model) {
+		//prende i temporanei e li riporta
+		return "admin_add.html";
+	}
+
+	@RequestMapping("/admin_search")
+	public String admin_search(Model model) {
+		//prende i temporanei e li riporta
+		model.addAttribute("stringa", new Photo());
+		return "admin_search.html";
+	}
+
+	@RequestMapping("/admin_requests")
+	public String admin_requests(Model model) {
+		//prende i temporanei e li riporta
+		return "admin_requests.html";
+	}
+
+	@RequestMapping("/admin_homepage")
+	public String admin_homepage(Model model) {
+		//prende i temporanei e li riporta
+		return "admin_homepage.html";
+	}
+
+	/*@RequestMapping(value="/submitPhotoForm", method = RequestMethod.POST)
+	public String submitPhotoForm(@Valid @ModelAttribute("photo") Photo photo,
+			Model model, BindingResult br, HttpSession session) {
+		this.rv.validate(request, br);
+		if(!br.hasErrors()) {
+			request.setPhotos((List<Photo>)session.getAttribute("photos"));
+			ss.inserisciRichiesta(request);
+			List<Photo> photos = new ArrayList<Photo>();
+			session.setAttribute("photos", photos);
+			return "requested.html";
+		}
+		return "requestForm.html";
+	}*/
+
+	@RequestMapping(value="/searchPhoto", method = RequestMethod.POST)
+	public String searchPhoto(@Valid @ModelAttribute("photo") Photo input,
+			Model model) {
+		model.addAttribute("photos", this.ss.PhotoByName(input.getName()));
+		return "photos_found.html";
+	}
+	
+	@RequestMapping(value="/searchPhotographer", method = RequestMethod.POST)
+	public String searchPhotographer(@Valid @ModelAttribute("photographer") Photo input,
+			Model model) {
+		model.addAttribute("photographers", this.ss.PhotographerBySurname(input.getName()));
+		return "photographers_found.html";
+	}
+	
+	@RequestMapping(value="/searchAlbum", method = RequestMethod.POST)
+	public String searchAlbum(@Valid @ModelAttribute("photographer") Photo input,
+			Model model) {
+		model.addAttribute("albums", this.ss.PhotographerBySurname(input.getName()));
+		return "albums_found.html";
+	}
+
 	@RequestMapping("/RequestForm")
 	public String requestForm(Model model) {
 		model.addAttribute("request", new Request());
@@ -98,8 +159,8 @@ public class SilphController {
 	}
 
 
-	@RequestMapping(value="/submitForm", method = RequestMethod.POST)
-	public String submitForm(@Valid @ModelAttribute("request") Request request,
+	@RequestMapping(value="/submitRequestForm", method = RequestMethod.POST)
+	public String submitRequestForm(@Valid @ModelAttribute("request") Request request,
 			Model model, BindingResult br, HttpSession session) {
 		this.rv.validate(request, br);
 		if(!br.hasErrors()) {
