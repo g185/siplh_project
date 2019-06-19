@@ -58,6 +58,13 @@ nav a:hover {
 			<li2> <a th:href="@{/}">Home</a></li2>
 		</ul>
 	</nav>
-	LOGIN		
+
+	<div class="container authenticated">
+		Logged in as: <span th:text="${nome}"></span>
+		<a href="/logout">Logout</a>
+	</div>
+
+
 </body>
+
 </html>
