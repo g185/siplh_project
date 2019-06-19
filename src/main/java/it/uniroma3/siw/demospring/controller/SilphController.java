@@ -91,10 +91,6 @@ public class SilphController {
 		//prende i temporanei e li riporta
 		return "login.html";
 	}
-	
-	
-	
-	
 
 	@RequestMapping("/RequestForm")
 	public String requestForm(Model model) {

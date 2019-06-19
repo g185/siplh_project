@@ -3,7 +3,6 @@
 	xmlns="http://www.w3.org/1999/html">
 <head>
 <title>SiLpH</title>
-
 <style>
 * {
 	box-sizing: border-box;
@@ -18,7 +17,7 @@ nav {
 	background: #2CA3CD;
 	width: 100%;
 	overflow: auto;
-	height: 210px;
+	height: 200px;
 }
 
 ul {
@@ -47,17 +46,21 @@ nav a:hover {
 	background: skyblue;
 	color: black;
 }
+
 </style>
 </head>
 <body>
 	<nav>
 		<ul>
 			<img th:src="@{images/logo.png}">
-			<li2> <a th:href="@{/Login}">Login</a></li2>
-			<li2> <a th:href="@{/Gallery}">Gallery</a></li2>
-			<li2> <a th:href="@{/}">Home</a></li2>
+			<li2>
+			<a th:href="@{/Login}">Login</a></li2>
+			<li2>
+			<a th:href="@{/Gallery}">Gallery</a></li2>
+			<li2>
+			<a th:href="@{/}">Home</a></li2>
 		</ul>
 	</nav>
-	LOGIN		
+	SUCCESS!
 </body>
 </html>
