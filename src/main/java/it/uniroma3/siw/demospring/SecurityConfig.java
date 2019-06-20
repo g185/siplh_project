@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/","/images/logo.png", "/Gallery", "/album", "/album/*", "/album/*/addPhoto/*")
+		http.authorizeRequests().antMatchers("/","/images/logo.png", "/Gallery", "/album", "/album/*", "/photos", "/album/*/addPhoto/*")
 		.permitAll()
 		.anyRequest().authenticated()
 		.and()
