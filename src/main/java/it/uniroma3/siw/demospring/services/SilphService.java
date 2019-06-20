@@ -44,6 +44,11 @@ public class SilphService {
 	}
 	
 	@Transactional
+	public List<Photo> tutteFoto() {
+		return (List<Photo>) this.pr.findAll();
+	}
+	
+	@Transactional
 	public List<Request> tutteRequest() {
 		return (List<Request>) this.rr.findAll();
 	}
