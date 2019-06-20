@@ -70,6 +70,7 @@ nav a:hover {
 			<li th:each="album : ${albums}">
 				<div class="gallery">
 					<img th:src="${album.imagePath}">
+					<div class="desc" th:text="${album.name}"></div></a>
 				</div>
 		</ul>
 	</div>

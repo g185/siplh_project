@@ -49,7 +49,7 @@ nav a:hover {
 </style>
 </head>
 <body>
-	<nav> 
+	<nav>
 		<ul>
 			<img th:src="@{/images/logo.png}">
 			<li2> <a th:href="@{/logout}">Logout</a></li2>
@@ -60,7 +60,7 @@ nav a:hover {
 		</ul>
 	</nav>
 	<div>
-	<a th:text="'Logged in as ' + ${nome}">nome</a>
+		<a th:text="'Logged in as ' + ${nome}">nome</a>
 	</div>
 	<br>
 	<form th:action="@{/submitAlbumPopulationForm}" method="POST"
@@ -78,20 +78,26 @@ nav a:hover {
 		</div>
 		<button type="submit">Invia</button>
 		</div>
-		<div>
-		id foto presenti:
-		</div>
+		<div>id foto presenti:</div>
 		<ul>
 			<li th:each="photo : ${photos}">
-			<a th:text="${photo.id}"></a></li>
+					<div class="gallery">
+						<img th:src="${photo.imagePath}">
+						<div class="desc" th:text="${photo.id}"></div>
+					</div></li>
 		</ul>
-		<div>
-		id album presenti:
+		<div>id album presenti:</div>
+		<div class="container">
+			<ul>
+				<li th:each="album : ${albums}">
+					<div class="gallery">
+						<img th:src="${album.imagePath}">
+						<div class="desc" th:text="${album.id}"></div>
+						</a>
+					</div>
+					</li>
+			</ul>
 		</div>
-		<ul>
-			<li th:each="album : ${albums}">
-			<a th:text="${album.id}"></a></li>
-		</ul>
 	</form>
 
 </body>
