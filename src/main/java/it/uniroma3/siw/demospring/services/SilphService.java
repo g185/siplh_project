@@ -61,6 +61,10 @@ public class SilphService {
 	public Album AlbumById(Long id) {
 		return this.ar.findById(id).get();
 	}
+	
+	public Request RequestById(Long id) {
+		return this.rr.findById(id).get();
+	}
 
 	public Boolean existPhotoById(Long id) {
 		return this.pr.existsById(id);
