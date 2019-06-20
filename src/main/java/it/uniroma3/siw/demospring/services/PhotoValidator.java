@@ -7,7 +7,6 @@ import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import it.uniroma3.siw.demospring.model.Photo;
-import it.uniroma3.siw.demospring.model.Photographer;
 
 @Component
 public class PhotoValidator implements Validator{

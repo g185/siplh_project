@@ -84,5 +84,13 @@ public class SilphService {
 	public void inserisciPhoto(Photo photo) {
 		this.pr.save(photo);
 	}
+	
+	public void inserisciPhotographer(Photographer photographer) {
+		this.phr.save(photographer);
+	}
+	
+	public void inserisciAlbum(Album album) {
+		this.ar.save(album);
+	}
 
 }
