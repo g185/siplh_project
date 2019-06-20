@@ -98,7 +98,7 @@ public class SilphController {
 				model.addAttribute("nome", w);
 		}
 		//model.addAttribute("nome", nome);
-		return "login.html";
+		return "admin_homepage.html";
 	}
 
 
