@@ -61,6 +61,10 @@ public class SilphService {
 	public Boolean existPhotoById(Long id) {
 		return this.pr.existsById(id);
 	}
+	
+	public Boolean existPhotographerById(Long id) {
+		return this.phr.existsById(id);
+	}
 
 	public List<Photo> PhotoByName(String name) {
 		return this.pr.findByName(name);
