@@ -218,12 +218,18 @@ public class SilphController {
 		return "requestForm.html";
 	}
 	
+	@RequestMapping(value="/submitAlbumPopulationForm", method = RequestMethod.POST)
+	public String submitAlbumPopulationForm(@Valid @ModelAttribute("request") Request request,
+			Model model, BindingResult br, HttpSession session) {
+		return "";
+	}
+	
 	@RequestMapping("/addPhotoForm")
 	public String addPhotoForm(Model model) {
 		model.addAttribute("photo", new Photo());
 		return "admin_add_photo.html";
 	}
-	
+
 	@RequestMapping("/addPhotographerForm")
 	public String addPhotographerForm(Model model) {
 		model.addAttribute("photographer", new Photographer());
