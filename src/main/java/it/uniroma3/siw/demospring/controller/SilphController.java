@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import it.uniroma3.siw.demospring.model.Album;
@@ -242,12 +243,12 @@ public class SilphController {
 	public String submitAlbumPopulationForm(@Valid @ModelAttribute("albumPhoto") AlbumPhoto albumPhoto,
 			Model model, BindingResult br, HttpSession session) {
 		model.addAttribute("nome", getAdminName());
-		System.out.println("\n\n\n\n\n");
 		this.apv.validate(albumPhoto, br);
 		if(!br.hasErrors()) {
 			Album al = this.ss.AlbumById(Long.parseLong(albumPhoto.getIdAlbum()));
 			List<Photo> photos = al.getPhotos();
 			photos.add(this.ss.PhotoById(Long.parseLong(albumPhoto.getIdPhoto())));
+			al.setPhotos(photos);
 			this.ss.modificaAlbum(al);
 			return "admin_succeded.html";
 		}
