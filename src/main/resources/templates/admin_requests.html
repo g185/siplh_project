@@ -67,7 +67,7 @@ nav a:hover {
 	<br>
 	<div class="container">
 		<ul>
-			<li th:each="request : ${requests}">
+			<li th:each="request : ${requests}"> 
 				<a th:href="@{'/request/' + ${request.id}}"
 					th:text = "'richesta di ' + ${request.customerName} + ' ' + ${request.customerSurname}"/>
 		</ul>
