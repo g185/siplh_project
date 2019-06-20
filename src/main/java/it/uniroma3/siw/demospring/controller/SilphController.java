@@ -243,12 +243,12 @@ public class SilphController {
 	public String submitAlbumPopulationForm(@Valid @ModelAttribute("albumPhoto") AlbumPhoto albumPhoto,
 			Model model, BindingResult br, HttpSession session) {
 		model.addAttribute("nome", getAdminName());
-		System.out.println("\n\n\n\n\n");
 		this.apv.validate(albumPhoto, br);
 		if(!br.hasErrors()) {
 			Album al = this.ss.AlbumById(Long.parseLong(albumPhoto.getIdAlbum()));
 			List<Photo> photos = al.getPhotos();
 			photos.add(this.ss.PhotoById(Long.parseLong(albumPhoto.getIdPhoto())));
+			al.setPhotos(photos);
 			this.ss.modificaAlbum(al);
 			return "admin_succeded.html";
 		}
