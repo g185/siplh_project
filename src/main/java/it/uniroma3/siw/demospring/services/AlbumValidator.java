@@ -1,5 +1,6 @@
 package it.uniroma3.siw.demospring.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
@@ -10,6 +11,9 @@ import it.uniroma3.siw.demospring.model.Album;
 @Component
 public class AlbumValidator implements Validator{
 
+	@Autowired
+	private SilphService ss;
+	
 	@Override
 	public boolean supports(Class<?> clazz) {
 		return Album.class.equals(clazz);
@@ -20,7 +24,6 @@ public class AlbumValidator implements Validator{
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "description", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "imagePath", "required");
-		
 	}
 
 }
