@@ -154,6 +154,17 @@ public class SilphController {
 		return "admin_add_photo.html";
 	}
 
+	@RequestMapping(value="/submitPhotographerForm", method = RequestMethod.POST)
+	public String submitPhotoForm(@Valid @ModelAttribute("photographer") Photographer photographer,
+			Model model, BindingResult br) {
+		this.phv.validate(photographer, br);
+		if(!br.hasErrors()) {
+			this.ss.inserisciPhotographer(photographer);
+			return "admin_succeded.html";
+		}
+		return "admin_add_photographer.html";
+	}
+
 	@RequestMapping(value="/searchPhoto", method = RequestMethod.POST)
 	public String searchPhoto(@Valid @ModelAttribute("photo") Photo input,
 			Model model) {

@@ -63,11 +63,27 @@ nav a:hover {
 	</nav>
 	<a href="/">Ciao, sei collegato come "nome" "cognome"</a><br>
 	
-	
-	<a th:href="@{/addPhotoForm}">Aggiungi nuova Foto</a><br>
-	<a th:href="@{/addPhotographerForm}">Aggiungi nuovo Fotografo</a><br>
-	<a th:href="@{/addAlbumForm}">Aggiungi nuovo Album</a><br>
-	
+	<form th:action="@{/submitPhotographerForm}" method = "POST" th:object="${photo}">
+	<div>
+	Inserisci nuovo fotografo
+	</div>
+	<div>
+	Nome:
+	</div>
+	<div>
+	<input type= "text" th:field="*{name}" >
+	<a th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/>
+	</div>
+	<div>
+	Cognome
+	</div>
+	<div>
+	<input type= "text" th:field="*{imagePath}" >
+	<a th:if="${#fields.hasErrors('imagePath')}" th:errors="*{imagePath}"/>
+	</div>
+	<div>
+	<button type = "submit">Invia</button>
+	</div>
 	
 </body>
 </html>
