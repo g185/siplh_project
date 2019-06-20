@@ -21,6 +21,8 @@ public class Photo {
 	
 	@ManyToOne
 	private Photographer photographer;
+
+	private String photographerId;
 	
 	private String name;
 

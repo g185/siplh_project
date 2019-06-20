@@ -19,6 +19,7 @@ public class RequestValidator implements Validator{
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "customerName", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "customerSurname", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "customerEmail", "required");	
+		
 	}
 
 }
