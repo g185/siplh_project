@@ -4,12 +4,10 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.mail.Session;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -56,6 +54,7 @@ public class SilphController {
 		return "homepage.html";
 	}
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping("/Gallery")
 	public String gallery(Model model, HttpSession session) {
 		if(session.getAttribute("photos") == null) {
@@ -80,6 +79,7 @@ public class SilphController {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/album/{idAlbum}/addPhoto/{idPhoto}")
 	public String addPhoto(@PathVariable("idAlbum") Long idA,
 			@PathVariable("idPhoto") Long id, Model model, HttpSession session)
@@ -112,7 +112,7 @@ public class SilphController {
 			if(w.contains("nome="))
 				model.addAttribute("nome", w);
 		}
-		//model.addAttribute("nome", nome);
+		model.addAttribute("nome", nome);
 		return "admin_homepage.html";
 	}
 
@@ -205,6 +205,7 @@ public class SilphController {
 	}
 
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/submitRequestForm", method = RequestMethod.POST)
 	public String submitRequestForm(@Valid @ModelAttribute("request") Request request,
 			Model model, BindingResult br, HttpSession session) {
