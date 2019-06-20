@@ -227,6 +227,7 @@ public class SilphController {
 	@RequestMapping(value="/submitAlbumPopulationForm", method = RequestMethod.POST)
 	public String submitAlbumPopulationForm(@Valid @ModelAttribute("albumPhoto") AlbumPhoto albumPhoto,
 			Model model, BindingResult br, HttpSession session) {
+		System.out.println("\n\n\n\n\n");
 		this.apv.validate(albumPhoto, br);
 		if(!br.hasErrors()) {
 			Album al = this.ss.AlbumById(Long.parseLong(albumPhoto.getIdAlbum()));
@@ -235,7 +236,7 @@ public class SilphController {
 			this.ss.modificaAlbum(al);
 			return "admin_succeded.html";
 		}
-		return "requestForm.html";
+		return "populate_album.html";
 	}
 	
 	@RequestMapping("/addPhotoForm")
