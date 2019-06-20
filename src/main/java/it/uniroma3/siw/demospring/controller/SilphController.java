@@ -22,6 +22,7 @@ import it.uniroma3.siw.demospring.model.AlbumPhoto;
 import it.uniroma3.siw.demospring.model.Photo;
 import it.uniroma3.siw.demospring.model.Photographer;
 import it.uniroma3.siw.demospring.model.Request;
+import it.uniroma3.siw.demospring.services.AlbumPhotoValidator;
 import it.uniroma3.siw.demospring.services.AlbumValidator;
 import it.uniroma3.siw.demospring.services.PhotoValidator;
 import it.uniroma3.siw.demospring.services.PhotographerValidator;
@@ -47,7 +48,10 @@ public class SilphController {
 	private AlbumValidator av;
 	
 	@Autowired
-	private PhotographerValidator phv;
+	private PhotographerValidator phv;	
+	
+	@Autowired
+	private AlbumPhotoValidator apv;
 	
 	@RequestMapping("/")
 	public String homepage() {
