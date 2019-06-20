@@ -46,8 +46,6 @@ nav a:hover {
 	background: skyblue;
 	color: black;
 }
-
-
 </style>
 </head>
 <body>
@@ -61,10 +59,26 @@ nav a:hover {
 			<li2> <a th:href="@{/admin_homepage}">Home</a></li2>
 		</ul>
 	</nav>
-	<a href="/">Ciao, sei collegato come "nome" "cognome"</a><br>
-	
+	<a href="/">Ciao, sei collegato come "nome" "cognome"</a>
+	<br>
+
 	<div class="container">
 		<ul>
+			<li><div>Nome:</div>
+				<div th:text="${request.customerName}"></div></li>
+			<li>
+				<div>Cognome:</div>
+				<div th:text="${request.customerSurname}"></div>
+			</li>
+			<li>
+				<div>Email:</div>
+				<div th:text="${request.customerEmail}"></div>
+			</li>
+			<li th:each="photo : ${request.photos}">
+				<div class="gallery">
+					<img th:src="${photo.imagePath}">
+				</div>
+			</li>
 		</ul>
 	</div>
 </body>
