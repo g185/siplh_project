@@ -19,8 +19,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import it.uniroma3.siw.demospring.model.Album;
 import it.uniroma3.siw.demospring.model.Photo;
+import it.uniroma3.siw.demospring.model.Photographer;
 import it.uniroma3.siw.demospring.model.Request;
+import it.uniroma3.siw.demospring.services.AlbumValidator;
+import it.uniroma3.siw.demospring.services.PhotoValidator;
+import it.uniroma3.siw.demospring.services.PhotographerValidator;
 import it.uniroma3.siw.demospring.services.RequestValidator;
 import it.uniroma3.siw.demospring.services.SilphService;
 
@@ -36,6 +41,15 @@ public class SilphController {
 	@Autowired
 	private RequestValidator rv;
 
+	@Autowired
+	private PhotoValidator pv;
+	
+	@Autowired
+	private AlbumValidator av;
+	
+	@Autowired
+	private PhotographerValidator phv;
+	
 	@RequestMapping("/")
 	public String homepage() {
 		return "homepage.html";
@@ -182,4 +196,23 @@ public class SilphController {
 		}
 		return "requestForm.html";
 	}
+	
+	@RequestMapping("/addPhotoForm")
+	public String addPhotoForm(Model model) {
+		model.addAttribute("photo", new Photo());
+		return "admin_add_photo.html";
+	}
+	
+	@RequestMapping("/addPhotographerForm")
+	public String addPhotographerForm(Model model) {
+		model.addAttribute("photographer", new Photographer());
+		return "admin_add_photographer.html";
+	}
+	
+	@RequestMapping("/addAlbumForm")
+	public String addAlbumForm(Model model) {
+		model.addAttribute("album", new Album());
+		return "admin_add_album.html";
+	}
+	
 }
