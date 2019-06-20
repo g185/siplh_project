@@ -93,4 +93,10 @@ public class SilphService {
 		this.ar.save(album);
 	}
 
+	public void modificaAlbum(Album al) {
+		this.ar.deleteById(al.getId());
+		this.ar.save(al);
+		
+	}
+
 }

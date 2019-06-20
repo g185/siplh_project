@@ -220,9 +220,17 @@ public class SilphController {
 	}
 	
 	@RequestMapping(value="/submitAlbumPopulationForm", method = RequestMethod.POST)
-	public String submitAlbumPopulationForm(@Valid @ModelAttribute("request") Request request,
+	public String submitAlbumPopulationForm(@Valid @ModelAttribute("albumPhoto") AlbumPhoto albumPhoto,
 			Model model, BindingResult br, HttpSession session) {
-		return "";
+		this.apv.validate(albumPhoto, br);
+		if(!br.hasErrors()) {
+			Album al = this.ss.AlbumById(Long.parseLong(albumPhoto.getIdAlbum()));
+			List<Photo> photos = al.getPhotos();
+			photos.add(this.ss.PhotoById(Long.parseLong(albumPhoto.getIdPhoto())));
+			this.ss.modificaAlbum(al);
+			return "admin_succeded.html";
+		}
+		return "requestForm.html";
 	}
 	
 	@RequestMapping("/addPhotoForm")
@@ -245,7 +253,7 @@ public class SilphController {
 	
 	@RequestMapping("/populateAlbumForm")
 	public String populateAlbumForm(Model model) {
-		model.addAttribute("album", new AlbumPhoto());
+		model.addAttribute("albumPhoto", new AlbumPhoto());
 		return "populate_album.html";
 	}
 	
