@@ -36,7 +36,6 @@ public class SilphService {
 	@Transactional
 	public void inserisciRichiesta(@Valid Request request) {
 		this.rr.save(request);
-
 	}
 
 	@Transactional
