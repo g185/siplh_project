@@ -43,6 +43,11 @@ public class SilphService {
 	public List<Album> tuttiAlbum() {
 		return (List<Album>) this.ar.findAll();
 	}
+	
+	@Transactional
+	public List<Request> tutteRequest() {
+		return (List<Request>) this.rr.findAll();
+	}
 
 	public List<Photo> tutteFotoDaAlbumId(Long id) {
 		Album alb = this.ar.findById(id).get();
@@ -100,7 +105,7 @@ public class SilphService {
 	public void modificaAlbum(Album al) {
 		this.ar.deleteById(al.getId());
 		this.ar.save(al);
-		
 	}
+	
 
 }
