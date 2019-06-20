@@ -63,7 +63,7 @@ nav a:hover {
 	</nav>
 	<a href="/">Ciao, sei collegato come "nome" "cognome"</a><br>
 	
-	<form th:action="@{/submitPhotographerForm}" method = "POST" th:object="${photo}">
+	<form th:action="@{/submitPhotographerForm}" method = "POST" th:object="${photographer}">
 	<div>
 	Inserisci nuovo fotografo
 	</div>
@@ -78,8 +78,8 @@ nav a:hover {
 	Cognome
 	</div>
 	<div>
-	<input type= "text" th:field="*{imagePath}" >
-	<a th:if="${#fields.hasErrors('imagePath')}" th:errors="*{imagePath}"/>
+	<input type= "text" th:field="*{surname}" >
+	<a th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"/>
 	</div>
 	<div>
 	<button type = "submit">Invia</button>
