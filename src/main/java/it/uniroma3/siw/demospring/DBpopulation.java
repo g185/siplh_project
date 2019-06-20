@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import it.uniroma3.siw.demospring.model.Album;
 import it.uniroma3.siw.demospring.model.Photo;
 import it.uniroma3.siw.demospring.model.Photographer;
+import it.uniroma3.siw.demospring.model.Request;
 import it.uniroma3.siw.demospring.repository.AlbumRepository;
 import it.uniroma3.siw.demospring.repository.PhotoRepository;
 import it.uniroma3.siw.demospring.repository.PhotographerRepository;
@@ -102,6 +103,14 @@ public class DBpopulation implements ApplicationRunner{
 		List<Photo> l4 = new LinkedList<Photo>();	l4.add(f13);	l4.add(f14);	l4.add(f15);	l4.add(f16);	a4.setPhotos(l4);
 		ar.save(a4);
 		
+		//requests
+		Request r1 = new Request();	List<Photo> l5 = new LinkedList<Photo>();	l5.add(f3);	l5.add(f14);	l5.add(f6);	l5.add(f7);
+		r1.setCustomerName("Mattia"); r1.setCustomerSurname("Pocci"); r1.setCustomerEmail("mat.pocci@stud.uniroma3.it");
+		r1.setPhotos(l5);	rr.save(r1);
+		
+		Request r2 = new Request();	List<Photo> l6 = new LinkedList<Photo>();	l6.add(f2);	l6.add(f13);	l6.add(f5);	l6.add(f8);
+		r2.setCustomerName("Giuliano"); r2.setCustomerSurname("Martinelli"); r2.setCustomerEmail("giu.martinelli@stud.uniroma3.it");
+		r2.setPhotos(l6);	rr.save(r2);
 	}
 
 
