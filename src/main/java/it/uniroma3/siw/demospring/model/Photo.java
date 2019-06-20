@@ -22,8 +22,16 @@ public class Photo {
 	@ManyToOne
 	private Photographer photographer;
 
-	private String photographerId;
+	private String phId;
 	
+	public String getPhId() {
+		return phId;
+	}
+
+	public void setPhId(String phId) {
+		this.phId = phId;		
+	}
+
 	private String name;
 
 	public String getName() {

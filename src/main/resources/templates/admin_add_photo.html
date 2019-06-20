@@ -75,18 +75,21 @@ nav a:hover {
 	</div>
 	<div>
 	<input type= "text" th:field="*{name}" >
+	<a th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/>
 	</div>
 	<div>
 	Image path:
 	</div>
 	<div>
 	<input type= "text" th:field="*{imagePath}" >
+	<a th:if="${#fields.hasErrors('imagePath')}" th:errors="*{imagePath}"/>
 	</div>
 	<div>
 	Id del fotografo:
 	</div>
 	<div>
-	<input type= "text" th:field="*{photographerId}" >
+	<input type= "text" th:field="*{phId}" >
+	<a th:if="${#fields.hasErrors('phId')}" th:errors="*{phId}"/>
 	</div>
 	<button type = "submit">Invia</button>
 	</div>

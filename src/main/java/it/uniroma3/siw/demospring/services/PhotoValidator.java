@@ -7,6 +7,7 @@ import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import it.uniroma3.siw.demospring.model.Photo;
+import it.uniroma3.siw.demospring.model.Photographer;
 
 @Component
 public class PhotoValidator implements Validator{
@@ -19,17 +20,18 @@ public class PhotoValidator implements Validator{
 		return Photo.class.equals(clazz);
 	}
 
-	
-	
 	@Override
 	public void validate(Object target, Errors errors) {
-		// TODO Auto-generated method stub
-		Photo p = (Photo)target;
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "imagePath", "required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "photographer", "required");
-		if(!ss.existPhotographerById(p.getPhotographer().getId()))
-			errors.rejectValue("photographer", "invalidPhotographerId");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "phId", "required");
+		if(errors.hasErrors()) return;
+		if(!this.ss.existPhotographerById(Long.parseLong(((Photo) target).getPhId(), 10))) {
+			Photo ph = (Photo)target;
+			ph.setPhId("");
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "phId", "required");
+		}
+		
 	}
 
 }

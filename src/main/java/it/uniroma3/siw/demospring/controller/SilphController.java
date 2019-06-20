@@ -141,19 +141,18 @@ public class SilphController {
 		return "admin_homepage.html";
 	}
 
-	/*@RequestMapping(value="/submitPhotoForm", method = RequestMethod.POST)
+	@RequestMapping(value="/submitPhotoForm", method = RequestMethod.POST)
 	public String submitPhotoForm(@Valid @ModelAttribute("photo") Photo photo,
-			Model model, BindingResult br, HttpSession session) {
-		this.rv.validate(request, br);
+			Model model, BindingResult br) {
+		this.pv.validate(photo, br);
 		if(!br.hasErrors()) {
-			request.setPhotos((List<Photo>)session.getAttribute("photos"));
-			ss.inserisciRichiesta(request);
-			List<Photo> photos = new ArrayList<Photo>();
-			session.setAttribute("photos", photos);
-			return "requested.html";
+			Photographer ph = this.ss.PhotographerById(Long.parseLong(photo.getPhId(), 10));
+			photo.setPhotographer(ph);
+			this.ss.inserisciPhoto(photo);
+			return "admin_succeded.html";
 		}
-		return "requestForm.html";
-	}*/
+		return "admin_add_photo.html";
+	}
 
 	@RequestMapping(value="/searchPhoto", method = RequestMethod.POST)
 	public String searchPhoto(@Valid @ModelAttribute("photo") Photo input,

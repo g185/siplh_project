@@ -29,7 +29,6 @@ public class SilphService {
 	@Autowired 
 	private PhotoRepository pr;
 
-
 	@Autowired 
 	private PhotographerRepository phr;
 
@@ -76,6 +75,14 @@ public class SilphService {
 
 	public List<Album> AlbumByName(String name) {
 		return this.ar.findByName(name);
+	}
+
+	public Photographer PhotographerById(Long id) {
+		return this.phr.findById(id).get();
+	}
+
+	public void inserisciPhoto(Photo photo) {
+		this.pr.save(photo);
 	}
 
 }
