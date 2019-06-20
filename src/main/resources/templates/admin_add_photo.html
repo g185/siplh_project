@@ -91,7 +91,7 @@ nav a:hover {
 		id photographer presenti:
 		</div>
 		<ul>
-			<li th:each="photographer : {$photographers}">
+			<li th:each="photographer : ${photographers}">
 			<a th:text="${photographer.id}"></a></li>
 		</ul>
 	</form>

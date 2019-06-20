@@ -82,14 +82,14 @@ nav a:hover {
 		id foto presenti:
 		</div>
 		<ul>
-			<li th:each="photo : {$photos}">
+			<li th:each="photo : ${photos}">
 			<a th:text="${photo.id}"></a></li>
 		</ul>
 		<div>
 		id album presenti:
 		</div>
 		<ul>
-			<li th:each="album : {$albums}">
+			<li th:each="album : ${albums}">
 			<a th:text="${album.id}"></a></li>
 		</ul>
 	</form>
