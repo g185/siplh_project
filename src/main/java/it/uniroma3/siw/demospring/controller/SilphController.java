@@ -137,7 +137,7 @@ public class SilphController {
 	@RequestMapping("/admin_requests")
 	public String admin_requests(Model model) {
 		//prende i temporanei e li riporta
-		model.addAttribute("richieste", this.ss.tutteRequest());
+		model.addAttribute("requests", this.ss.tutteRequest());
 		return "admin_requests.html";
 	}
 
