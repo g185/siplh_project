@@ -1,13 +1,15 @@
 package it.uniroma3.siw.demospring.controller;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.mail.Session;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -87,14 +89,17 @@ public class SilphController {
 	}
 
 	@RequestMapping("/Login")
-	public String login(Model model) {
+	public String login(Model model, Principal principal) {
 		//prende i temporanei e li riporta
+		String [] words = principal.toString().split(" ");
+		String nome = "Paolo Merialdo";
+		for(String w : words) {
+			if(w.contains("nome="))
+				model.addAttribute("nome", w);
+		}
+		//model.addAttribute("nome", nome);
 		return "login.html";
 	}
-	
-	
-	
-	
 
 
 	@RequestMapping("/admin_add")
