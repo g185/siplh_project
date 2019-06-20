@@ -46,8 +46,6 @@ nav a:hover {
 	background: skyblue;
 	color: black;
 }
-
-
 </style>
 </head>
 <body>
@@ -61,29 +59,25 @@ nav a:hover {
 			<li2> <a th:href="@{/admin_homepage}">Home</a></li2>
 		</ul>
 	</nav>
-	<a href="/">Ciao, sei collegato come "nome" "cognome"</a><br>
-	
-	<form th:action="@{/submitPhotographerForm}" method = "POST" th:object="${photographer}">
-	<div>
-	Inserisci nuovo fotografo
-	</div>
-	<div>
-	Nome:
-	</div>
-	<div>
-	<input type= "text" th:field="*{name}" >
-	<a th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/>
-	</div>
-	<div>
-	Cognome
-	</div>
-	<div>
-	<input type= "text" th:field="*{surname}" >
-	<a th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"/>
-	</div>
-	<div>
-	<button type = "submit">Invia</button>
-	</div>
-	
+	<a href="/">Ciao, sei collegato come "nome" "cognome"</a>
+	<br>
+
+	<form th:action="@{/submitPhotographerForm}" method="POST"
+		th:object="${photographer}">
+		<div>Inserisci nuovo fotografo</div>
+		<div>Nome:</div>
+		<div>
+			<input type="text" th:field="*{name}"> <a
+				th:if="${#fields.hasErrors('name')}" th:errors="*{name}" />
+		</div>
+		<div>Cognome</div>
+		<div>
+			<input type="text" th:field="*{surname}"> <a
+				th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" />
+		</div>
+		<div>
+			<button type="submit">Invia</button>
+		</div>
+	</form>
 </body>
 </html>
