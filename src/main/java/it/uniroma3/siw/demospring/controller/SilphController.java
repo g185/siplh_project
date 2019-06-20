@@ -164,6 +164,17 @@ public class SilphController {
 		}
 		return "admin_add_photographer.html";
 	}
+	
+	@RequestMapping(value="/submitAlbumForm", method = RequestMethod.POST)
+	public String submitAlbumForm(@Valid @ModelAttribute("album") Album album,
+			Model model, BindingResult br) {
+		this.av.validate(album, br);
+		if(!br.hasErrors()) {
+			this.ss.inserisciAlbum(album);
+			return "admin_succeded.html";
+		}
+		return "admin_add_album.html";
+	}
 
 	@RequestMapping(value="/searchPhoto", method = RequestMethod.POST)
 	public String searchPhoto(@Valid @ModelAttribute("photo") Photo input,
