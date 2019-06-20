@@ -264,5 +264,15 @@ public class SilphController {
 		return "populate_album.html";
 	}
 	
-	
+	@RequestMapping("/request/{id}")
+	public String request(@PathVariable("id") Long id, Model model, HttpSession session)
+	{ 
+		if(id != null) {
+			model.addAttribute("request", this.ss.RequestById(id));
+			return "request.html";
+
+		}else {model.addAttribute("requests", this.ss.tutteRequest());
+		return "admin_requests.html";
+		}
+	}
 }
