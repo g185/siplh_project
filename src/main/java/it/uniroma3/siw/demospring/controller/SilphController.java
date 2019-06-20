@@ -257,6 +257,7 @@ public class SilphController {
 	
 	@RequestMapping("/addPhotoForm")
 	public String addPhotoForm(Model model) {
+		model.addAttribute("photographers", this.ss.tuttiFotografi());
 		model.addAttribute("nome", getAdminName());
 		model.addAttribute("photo", new Photo());
 		return "admin_add_photo.html";
@@ -278,6 +279,8 @@ public class SilphController {
 	
 	@RequestMapping("/populateAlbumForm")
 	public String populateAlbumForm(Model model) {
+		model.addAttribute("photos", this.ss.tutteFoto());
+		model.addAttribute("albums", this.ss.tuttiAlbum());
 		model.addAttribute("nome", getAdminName());
 		model.addAttribute("albumPhoto", new AlbumPhoto());
 		return "populate_album.html";

@@ -87,6 +87,13 @@ nav a:hover {
 		</div>
 		<button type="submit">Invia</button>
 		</div> 
+		<div>
+		id photographer presenti:
+		</div>
+		<ul>
+			<li th:each="photographer : {$photographers}">
+			<a th:text="${photographer.id}"></a></li>
+		</ul>
 	</form>
 
 </body>

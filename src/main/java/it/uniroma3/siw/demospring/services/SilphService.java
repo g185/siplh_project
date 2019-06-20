@@ -123,6 +123,10 @@ public class SilphService {
 	public void modificaAlbum(Album al) {
 		this.ar.save(al);
 	}
+
+	public List<Photographer> tuttiFotografi() {
+		return (List<Photographer>) this.phr.findAll();
+	}
 	
 
 }
