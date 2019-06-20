@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import it.uniroma3.siw.demospring.model.Album;
+import it.uniroma3.siw.demospring.model.AlbumPhoto;
 import it.uniroma3.siw.demospring.model.Photo;
 import it.uniroma3.siw.demospring.model.Photographer;
 import it.uniroma3.siw.demospring.model.Request;
@@ -235,5 +236,12 @@ public class SilphController {
 		model.addAttribute("album", new Album());
 		return "admin_add_album.html";
 	}
+	
+	@RequestMapping("/populateAlbumForm")
+	public String populateAlbumForm(Model model) {
+		model.addAttribute("album", new AlbumPhoto());
+		return "populate_album.html";
+	}
+	
 	
 }
