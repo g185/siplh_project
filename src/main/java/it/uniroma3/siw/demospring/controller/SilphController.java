@@ -196,9 +196,9 @@ public class SilphController {
 	}
 	
 	@RequestMapping(value="/searchAlbum", method = RequestMethod.POST)
-	public String searchAlbum(@Valid @ModelAttribute("photographer") Photo input,
+	public String searchAlbum(@Valid @ModelAttribute("album") Photo input,
 			Model model) {
-		model.addAttribute("albums", this.ss.PhotographerBySurname(input.getName()));
+		model.addAttribute("albums", this.ss.AlbumByName(input.getName()));
 		return "albums_found.html";
 	}
 
